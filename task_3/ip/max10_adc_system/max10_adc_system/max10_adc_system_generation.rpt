@@ -1,0 +1,61 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\task3_max10_clean\ip\max10_adc_system\max10_adc_system.qsys --block-symbol-file --output-directory=C:\task3_max10_clean\ip\max10_adc_system\max10_adc_system --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading max10_adc_system/max10_adc_system.qsys
+Progress: Reading input file
+Progress: Adding clk_0 [clock_source 20.1]
+Progress: Parameterizing module clk_0
+Progress: Adding modular_dual_adc_0 [altera_modular_dual_adc 20.1]
+Progress: Parameterizing module modular_dual_adc_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: max10_adc_system.modular_dual_adc_0.control_internal.response/st_splitter_internal.in: The sink has a empty signal of 1 bits, but the source does not. Avalon-ST Adapter will be inserted.
+Info: max10_adc_system.modular_dual_adc_0.st_splitter_internal.out1/adc_monitor_internal.adc_data: The source has a empty signal of 1 bits, but the sink does not. Avalon-ST Adapter will be inserted.
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\task3_max10_clean\ip\max10_adc_system\max10_adc_system.qsys --synthesis=VERILOG --output-directory=C:\task3_max10_clean\ip\max10_adc_system\max10_adc_system\synthesis --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading max10_adc_system/max10_adc_system.qsys
+Progress: Reading input file
+Progress: Adding clk_0 [clock_source 20.1]
+Progress: Parameterizing module clk_0
+Progress: Adding modular_dual_adc_0 [altera_modular_dual_adc 20.1]
+Progress: Parameterizing module modular_dual_adc_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: max10_adc_system.modular_dual_adc_0.control_internal.response/st_splitter_internal.in: The sink has a empty signal of 1 bits, but the source does not. Avalon-ST Adapter will be inserted.
+Info: max10_adc_system.modular_dual_adc_0.st_splitter_internal.out1/adc_monitor_internal.adc_data: The source has a empty signal of 1 bits, but the sink does not. Avalon-ST Adapter will be inserted.
+Info: max10_adc_system: Generating max10_adc_system "max10_adc_system" for QUARTUS_SYNTH
+Info: avalon_st_adapter: Inserting data_format_adapter: data_format_adapter_0
+Info: avalon_st_adapter: Inserting timing_adapter: timing_adapter_0
+Info: avalon_st_adapter: Inserting timing_adapter: timing_adapter_1
+Info: avalon_st_adapter_001: Inserting data_format_adapter: data_format_adapter_0
+Info: avalon_st_adapter_001: Inserting timing_adapter: timing_adapter_0
+Info: avalon_st_adapter_001: Inserting timing_adapter: timing_adapter_1
+Info: modular_dual_adc_0: "max10_adc_system" instantiated altera_modular_dual_adc "modular_dual_adc_0"
+Info: rst_controller: "max10_adc_system" instantiated altera_reset_controller "rst_controller"
+Info: control_internal: "modular_dual_adc_0" instantiated altera_modular_adc_control "control_internal"
+Info: adc_monitor_internal: "modular_dual_adc_0" instantiated altera_trace_adc_monitor "adc_monitor_internal"
+Info: conduit_splitter_internal: "modular_dual_adc_0" instantiated altera_modular_adc_conduit_splitter "conduit_splitter_internal"
+Info: dual_sync_internal: "modular_dual_adc_0" instantiated altera_modular_adc_dual_sync "dual_sync_internal"
+Info: st_splitter_internal: "modular_dual_adc_0" instantiated altera_avalon_st_splitter "st_splitter_internal"
+Info: avalon_st_adapter: "modular_dual_adc_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: avalon_st_adapter_001: "modular_dual_adc_0" instantiated altera_avalon_st_adapter "avalon_st_adapter_001"
+Info: altera_trace_adc_monitor_wa_inst: "Generating: altera_trace_adc_monitor_wa_inst"
+Info: core: "adc_monitor_internal" instantiated altera_trace_adc_monitor_core "core"
+Info: trace_endpoint: "adc_monitor_internal" instantiated altera_trace_monitor_endpoint "trace_endpoint"
+Info: data_format_adapter_0: "avalon_st_adapter" instantiated data_format_adapter "data_format_adapter_0"
+Info: timing_adapter_0: "avalon_st_adapter" instantiated timing_adapter "timing_adapter_0"
+Info: timing_adapter_1: "avalon_st_adapter" instantiated timing_adapter "timing_adapter_1"
+Info: data_format_adapter_0: "avalon_st_adapter_001" instantiated data_format_adapter "data_format_adapter_0"
+Info: timing_adapter_0: "avalon_st_adapter_001" instantiated timing_adapter "timing_adapter_0"
+Info: timing_adapter_1: "avalon_st_adapter_001" instantiated timing_adapter "timing_adapter_1"
+Info: altera_trace_adc_monitor_wa_inst: "core" instantiated altera_trace_adc_monitor_core "altera_trace_adc_monitor_wa_inst"
+Info: altera_trace_adc_monitor_wa_inst: "altera_trace_adc_monitor_wa_inst" instantiated altera_trace_adc_monitor_wa "altera_trace_adc_monitor_wa_inst"
+Info: max10_adc_system: Done "max10_adc_system" with 20 modules, 28 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

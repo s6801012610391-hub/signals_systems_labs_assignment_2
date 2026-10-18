@@ -1,0 +1,65 @@
+# Task 3 - DE10-Lite MAX 10 + onboard ADC + ping-pong buffers + SPI bridge
+set_global_assignment -name FAMILY "MAX 10"
+set_global_assignment -name DEVICE 10M50DAF484C7G
+set_global_assignment -name TOP_LEVEL_ENTITY task3_max10_top
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.1
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 4
+
+# RTL
+
+# Generated Intel IP. Generate these exactly as described in README_FIRST_TH.md.
+
+# 50 MHz board clock
+set_location_assignment PIN_P11 -to MAX10_CLK1_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MAX10_CLK1_50
+
+# KEY0 = active-low reset
+set_location_assignment PIN_B8 -to KEY0
+
+# JP1 SPI / handshake pins
+# JP1 pin 1 = GPIO_0
+set_location_assignment PIN_V10 -to SPI_SCK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SPI_SCK
+# JP1 pin 2 = GPIO_1
+set_location_assignment PIN_W10 -to SPI_MISO
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SPI_MISO
+# JP1 pin 3 = GPIO_2
+set_location_assignment PIN_V9 -to SPI_MOSI
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SPI_MOSI
+# JP1 pin 4 = GPIO_3
+set_location_assignment PIN_W9 -to SPI_CS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SPI_CS_N
+# JP1 pin 5 = GPIO_4
+set_location_assignment PIN_V8 -to BLOCK_READY
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BLOCK_READY
+# JP1 pin 6 = GPIO_5, optional oscilloscope debug output
+set_location_assignment PIN_W8 -to SAMPLE_TOGGLE
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SAMPLE_TOGGLE
+
+# On-board debug LEDs
+set_location_assignment PIN_A8 -to LEDR[0]
+set_location_assignment PIN_A9 -to LEDR[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[1]
+
+set_global_assignment -name LAST_QUARTUS_VERSION "20.1.1 Lite Edition"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name QIP_FILE ip/max10_adc_system/max10_adc_system/synthesis/max10_adc_system.qip
+set_global_assignment -name VERILOG_FILE rtl/task3_max10_top.v
+set_global_assignment -name VERILOG_FILE rtl/sample_rate_gen.v
+set_global_assignment -name VERILOG_FILE rtl/adc_vendor_adapter.v
+set_global_assignment -name VERILOG_FILE rtl/audio_acquisition.v
+set_global_assignment -name VERILOG_FILE rtl/sample_ram.v
+set_global_assignment -name VERILOG_FILE rtl/spi_block_slave.v
+set_global_assignment -name VERILOG_FILE rtl/audio_core.v
+set_global_assignment -name QIP_FILE ip/adc_pll/adc_pll.qip
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY0
+set_global_assignment -name SDC_FILE task3_max10.sdc
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
